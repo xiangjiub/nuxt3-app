@@ -15,10 +15,16 @@
 
         <button @click="show = !show">显示列表</button>
         <LazyMountainsList v-if="show"/>
+
+        <div v-for="item in todos" :key="item.id">
+            <input type="checkbox" v-model="item.computed">
+            <strong>{{item.title}}</strong>
+        </div>
     </div>
 </template>
 
 <script setup>
 import {ref} from 'vue';
 const show = ref(false)
+const {data:todos} = await useAsyncData('count',()=>$fetch('/api/todo'))
 </script>
