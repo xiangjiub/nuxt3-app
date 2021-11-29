@@ -11,6 +11,14 @@
         <NuxtLink to="/parent">/parent 默认</NuxtLink>
         <p></p>
         <NuxtLink to="/hello">hello  组件</NuxtLink>
-        
+        <p></p>
+
+        <button @click="show = !show">显示列表</button>
+        <LazyMountainsList v-if="show"/>
     </div>
 </template>
+
+<script setup>
+import {ref} from 'vue';
+const show = ref(false)
+</script>
