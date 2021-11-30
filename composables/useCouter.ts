@@ -1,0 +1,1 @@
+export const useCouter = ()=> useState("couter",()=>1)

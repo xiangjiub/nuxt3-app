@@ -20,6 +20,11 @@
             <input type="checkbox" v-model="item.computed">
             <strong>{{item.title}}</strong>
         </div>
+
+        <button @click="count ++">增加++</button>
+        <button @click="count --">减少--</button>
+
+        count的值：{{count}}
     </div>
 </template>
 
@@ -27,4 +32,6 @@
 import {ref} from 'vue';
 const show = ref(false)
 const {data:todos} = await useAsyncData('count',()=>$fetch('/api/todo'))
+const count = useState("count",()=>1)
+const couter =  useCouter()
 </script>
